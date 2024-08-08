@@ -1,0 +1,8 @@
+h1 {
+    background-color: lightgray;
+    margin: 0 auto;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
