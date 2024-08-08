@@ -1,0 +1,39 @@
+.article-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .article-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .article-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .article-details {
+    padding: 15px;
+  }
+  
+  .article-title {
+    font-size: 1.5em;
+    margin: 0;
+  }
+  
+  .article-description {
+    margin: 10px 0;
+  }
+  
+  .article-date, .article-source {
+    color: #555;
+    font-size: 0.9em;
+  }
