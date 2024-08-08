@@ -17,7 +17,8 @@
   
   .article-image {
     width: 100%;
-    height: auto;
+    height: 12em;
+    object-fit: cover;
   }
   
   .article-details {
