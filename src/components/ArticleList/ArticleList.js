@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import  { Link } from 'react-router-dom';  
 import { fetchArticles } from '../../ApiCalls/apiCalls';
 import './ArticleList.css';
 import placeholderImage from '../../images/newsImage.jpg';
@@ -33,19 +34,21 @@ const ArticleList = () => {
   return (
     <div className="article-list">
       {articles.map((article, index) => (
-        <div key={index} className="article-card">
-          <img
-            src={article.urlToImage || placeholderImage} 
-            alt={article.title}
-            className="article-image"
-          />
-          <div className="article-details">
-            <h2 className="article-title">{article.title}</h2>
-            <p className="article-description">{article.description}</p>
-            <p className="article-date">{new Date(article.publishedAt).toLocaleDateString()}</p>
-            <p className="article-source">{article.source.name}</p>
+        <Link to={`/article/${index}`} key={index} className="article-card-link">
+          <div className="article-card">
+            <img
+              src={article.urlToImage || placeholderImage}
+              alt={article.title}
+              className="article-image"
+            />
+            <div className="article-details">
+              <h2 className="article-title">{article.title}</h2>
+              <p className="article-description">{article.description}</p>
+              <p className="article-date">{new Date(article.publishedAt).toLocaleDateString()}</p>
+              <p className="article-source">{article.source.name}</p>
+            </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
