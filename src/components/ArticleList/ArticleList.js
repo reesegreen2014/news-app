@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import  { Link } from 'react-router-dom';  
+import { Link } from 'react-router-dom';
 import { fetchArticles } from '../../ApiCalls/apiCalls';
 import './ArticleList.css';
 import placeholderImage from '../../images/newsImage.jpg';
 
-const ArticleList = () => {
+const ArticleList = ({ searchTerm }) => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -31,11 +31,17 @@ const ArticleList = () => {
     return <p>Error loading articles: {error}</p>;
   }
 
+  console.log("Filtering articles with term:", searchTerm);
+  const filteredArticles = articles.filter(article =>
+    article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    article.source.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="article-list">
-      {articles.map((article, index) => (
-        <div key={index} className="article-card">
-          <Link to={`/article/${index}`} className="article-card-link">
+      {filteredArticles.map((article, index) => (
+        <Link to={`/article/${index}`} key={index} className="article-card-link">
+          <div className="article-card">
             <img
               src={article.urlToImage || placeholderImage}
               alt={article.title}
@@ -47,12 +53,11 @@ const ArticleList = () => {
               <p className="article-date">{new Date(article.publishedAt).toLocaleDateString()}</p>
               <p className="article-source">{article.source.name}</p>
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
       ))}
     </div>
   );
 };
-
 
 export default ArticleList;

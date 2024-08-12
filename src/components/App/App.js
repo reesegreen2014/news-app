@@ -9,8 +9,8 @@ import './App.css';
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleSearch = (searchTerm) => { 
-    setSearchTerm(searchTerm);
+  const handleSearch = (term) => { 
+    setSearchTerm(term);
   };
 
   return (
