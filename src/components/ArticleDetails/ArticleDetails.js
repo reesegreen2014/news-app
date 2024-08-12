@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import placeholderArticles from '../../mockData'; 
 import placeholderImage from '../../images/newsImage.jpg';
 import './ArticleDetails.css';
@@ -14,6 +14,7 @@ const ArticleDetails = () => {
 
   return (
     <div className="article-details-container">
+        <Link to="/" className='back-button'>Back To Home</Link>
       <h1 className="details-title">{article.title}</h1>
       <img 
         src={article.urlToImage || placeholderImage} 
