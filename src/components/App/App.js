@@ -17,9 +17,16 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <SearchBar onSearch={handleSearch} />
         <Routes>
-          <Route path="/" element={<ArticleList searchTerm={searchTerm} />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <SearchBar onSearch={handleSearch} />
+                <ArticleList searchTerm={searchTerm} />
+              </>
+            }
+          />
           <Route path="/article/:id" element={<ArticleDetails />} />
         </Routes>
       </div>
