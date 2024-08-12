@@ -3,6 +3,7 @@ import './SearchBar.css';
 
 const SearchBar = ({ onSearch, onClear}) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isSearchClicked, setIsSearchClicked] = useState(false);
 
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
@@ -11,10 +12,12 @@ const SearchBar = ({ onSearch, onClear}) => {
   const handleSearch = (event) => {
     event.preventDefault();
     onSearch(searchTerm); 
+    setIsSearchClicked(true);
   };
 
   const handleClear = () => {
     setSearchTerm('');
+    setIsSearchClicked(false);
     onClear();
   }
 
@@ -30,7 +33,7 @@ const SearchBar = ({ onSearch, onClear}) => {
         />
         <button type="submit" className="search-button">Search</button>
       </form>
-      {searchTerm && (
+      {isSearchClicked && (
         <button onClick={handleClear} className="clear-button">
           Clear Search
         </button>

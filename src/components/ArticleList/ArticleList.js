@@ -31,11 +31,14 @@ const ArticleList = ({ searchTerm }) => {
     return <p>Error loading articles: {error}</p>;
   }
 
-  console.log("Filtering articles with term:", searchTerm);
   const filteredArticles = articles.filter(article =>
     article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     article.source.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  if (filteredArticles.length === 0) {
+    return <p className="no-results">No articles found for your search.</p>;
+  }
 
   return (
     <div className="article-list">
