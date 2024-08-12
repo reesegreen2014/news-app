@@ -34,8 +34,8 @@ const ArticleList = () => {
   return (
     <div className="article-list">
       {articles.map((article, index) => (
-        <Link to={`/article/${index}`} key={index} className="article-card-link">
-          <div className="article-card">
+        <div key={index} className="article-card">
+          <Link to={`/article/${index}`} className="article-card-link">
             <img
               src={article.urlToImage || placeholderImage}
               alt={article.title}
@@ -47,11 +47,12 @@ const ArticleList = () => {
               <p className="article-date">{new Date(article.publishedAt).toLocaleDateString()}</p>
               <p className="article-source">{article.source.name}</p>
             </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       ))}
     </div>
   );
 };
+
 
 export default ArticleList;
