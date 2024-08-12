@@ -13,6 +13,10 @@ function App() {
     setSearchTerm(term);
   };
 
+  const handleClear = () => {
+    setSearchTerm('')
+  }
+
   return (
     <Router>
       <div className="App">
@@ -22,7 +26,7 @@ function App() {
             path="/"
             element={
               <>
-                <SearchBar onSearch={handleSearch} />
+                <SearchBar onSearch={handleSearch} onClear={handleClear} />
                 <ArticleList searchTerm={searchTerm} />
               </>
             }
@@ -33,5 +37,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
