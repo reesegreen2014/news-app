@@ -2,6 +2,7 @@
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;
+    margin-top: 5em;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -26,14 +27,23 @@
   }
   
   .details-title {
-    font-size: 2em;
-    margin-bottom: 10px;
+    font-size: 1.5em; 
+    margin-bottom: 1.5em; 
+    background-color: #f0f0f0; 
+    padding: 1em; 
+    border-radius: 10px;
+    border: 2px solid #ccc; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #333; 
+    text-align: center; 
   }
   
+  
   .details-image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+    width: 30em;
+    height: 30em;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
   }
   
   .details-author,
