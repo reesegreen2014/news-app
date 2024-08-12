@@ -14,7 +14,12 @@ const ArticleList = ({ searchTerm }) => {
     fetchArticles()
       .then(articlesData => {
         console.log('Fetched articles:', articlesData);
-        setArticles(articlesData);
+        const filteredData = articlesData.filter(article =>
+          !article.title.includes('[Removed]') &&
+          !article.description.includes('[Removed]') &&
+          !article.content.includes('[Removed]')
+        );
+        setArticles(filteredData);
         setLoading(false);
       })
       .catch(error => {
