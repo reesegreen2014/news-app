@@ -7,9 +7,9 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .back-button {
+.back-button {
     display: inline-block;
     margin-bottom: 20px;
     padding: 10px 15px;
@@ -20,52 +20,112 @@
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .back-button:hover {
+}
+
+.back-button:hover {
     background-color: #0056b3;
-  }
-  
-  .details-title {
-    font-size: 1.5em; 
-    margin-bottom: 1.5em; 
-    background-color: #f0f0f0; 
-    padding: 1em; 
+}
+
+.details-title {
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+    background-color: #f0f0f0;
+    padding: 1em;
     border-radius: 10px;
-    border: 2px solid #ccc; 
+    border: 2px solid #ccc;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: #333; 
-    text-align: center; 
-  }
-  
-  
-  .details-image {
+    color: #333;
+    text-align: center;
+}
+
+.details-image {
     width: 30em;
     height: 30em;
     margin-bottom: 1.5em;
     margin-top: 1.5em;
-  }
-  
-  .details-author,
-  .details-date {
+}
+
+.details-author,
+.details-date {
     font-size: 0.9em;
     color: #555;
-  }
-  
-  .details-content {
+}
+
+.details-content {
     font-size: 1.1em;
     line-height: 1.6;
     margin: 20px 0;
-  }
-  
-  .details-link {
+}
+
+.details-link {
     display: inline-block;
     margin-top: 20px;
     color: #007bff;
     text-decoration: none;
-  }
-  
-  .details-link:hover {
+}
+
+.details-link:hover {
     text-decoration: underline;
-  }
-  
+}
+
+@media (max-width: 576px) {
+    .article-details-container {
+        padding: 15px;
+        margin-top: 2em;
+    }
+
+    .details-title {
+        font-size: 1.2em;
+        padding: 0.8em;
+    }
+
+    .details-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .back-button {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .article-details-container {
+        padding: 18px;
+    }
+
+    .details-title {
+        font-size: 1.3em;
+        padding: 0.9em;
+    }
+
+    .details-image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .details-title {
+        font-size: 1.4em;
+        padding: 1em;
+    }
+
+    .details-image {
+        width: 80%;
+        height: auto;
+    }
+}
+
+@media (max-width: 1200px) {
+    .details-title {
+        font-size: 1.5em;
+        padding: 1em;
+    }
+
+    .details-image {
+        width: 70%;
+        height: auto;
+    }
+}

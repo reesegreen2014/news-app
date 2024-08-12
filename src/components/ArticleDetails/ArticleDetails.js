@@ -1,12 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import placeholderArticles from '../../mockData'; 
 import placeholderImage from '../../images/newsImage.jpg';
+import { fetchArticles } from '../../ApiCalls/apiCalls'; 
 import './ArticleDetails.css';
 
 const ArticleDetails = () => {
-  const { id } = useParams();  
-  const article = placeholderArticles[id];  
+  const { id } = useParams(); 
+  const [article, setArticle] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchArticles()
+      .then(articles => {
+        const selectedArticle = articles[id]; 
+        if (selectedArticle) {
+          setArticle(selectedArticle);
+        } else {
+          setError('Article not found');
+        }
+        setLoading(false);
+      })
+      .catch(error => {
+        setError('Error fetching article');
+        setLoading(false);
+      });
+  }, [id]);
+
+  if (loading) {
+    return <p>Loading article...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   if (!article) {
     return <p>Article not found</p>;
@@ -14,7 +41,7 @@ const ArticleDetails = () => {
 
   return (
     <div className="article-details-container">
-        <Link to="/" className='back-button'>Back To Home</Link>
+      <Link to="/" className="back-button">Back To Home</Link>
       <h1 className="details-title">{article.title}</h1>
       <img 
         src={article.urlToImage || placeholderImage} 
