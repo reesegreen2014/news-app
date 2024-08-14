@@ -1,4 +1,4 @@
-describe('Articles List', () => {
+describe('Article Details', () => {
     beforeEach(() => {
       cy.fixture('articles').then((articles) => {
         cy.intercept('GET', '**/v2/everything*', {
