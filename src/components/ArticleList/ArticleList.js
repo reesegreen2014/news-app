@@ -51,7 +51,7 @@ const ArticleList = ({ searchTerm }) => {
   return (
     <div className="article-list">
       {filteredArticles.map((article, index) => (
-        <Link to={`/article/${index}`} key={index} className="article-card-link">
+        <Link to={`/article/${encodeURIComponent(article.url)}`} key={index} className="article-card-link">
           <div className="article-card">
             <img
               src={article.urlToImage || placeholderImage}

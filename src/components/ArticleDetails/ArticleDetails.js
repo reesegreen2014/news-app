@@ -13,7 +13,8 @@ const ArticleDetails = () => {
   useEffect(() => {
     fetchArticles()
       .then(articles => {
-        const selectedArticle = articles[id]; 
+        const articleUrl = id; 
+        const selectedArticle = articles.find(article => article.url === articleUrl); 
         if (selectedArticle) {
           setArticle(selectedArticle);
         } else {
