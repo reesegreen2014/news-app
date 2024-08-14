@@ -13,7 +13,6 @@ const ArticleList = ({ searchTerm }) => {
     setLoading(true);
     fetchArticles()
       .then(articlesData => {
-        console.log('Fetched articles:', articlesData);
         const filteredData = articlesData.filter(article =>
           !article.title.includes('[Removed]') &&
           !article.description.includes('[Removed]') &&
@@ -23,7 +22,7 @@ const ArticleList = ({ searchTerm }) => {
         setLoading(false);
       })
       .catch(error => {
-        setError(error.message);
+        setError('Oops! Something went wrong. The news elves are on vacation. Please try again later!');
         setLoading(false);
       });
   }, []);
@@ -33,7 +32,11 @@ const ArticleList = ({ searchTerm }) => {
   }
 
   if (error) {
-    return <p>Error loading articles: {error}</p>;
+    return (
+      <div className="error-container">
+        <h1>{error}</h1>
+      </div>
+    );
   }
 
   const filteredArticles = articles.filter(article =>
