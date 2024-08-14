@@ -32,7 +32,7 @@ function App() {
               </>
             }
           />
-          <Route path="/article/:id" element={<ArticleDetails />} />
+          <Route path="/article/:id" element={<ArticleDetails onBackToHome={handleClear} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

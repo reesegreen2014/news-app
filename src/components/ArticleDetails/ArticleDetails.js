@@ -4,7 +4,7 @@ import placeholderImage from '../../images/newsImage.jpg';
 import { fetchArticles } from '../../ApiCalls/apiCalls'; 
 import './ArticleDetails.css';
 
-const ArticleDetails = () => {
+const ArticleDetails = ({ onBackToHome }) => {
   const { id } = useParams(); 
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -42,7 +42,7 @@ const ArticleDetails = () => {
 
   return (
     <div className="article-details-container">
-      <Link to="/" className="back-button">Back To Home</Link>
+      <Link to="/" className="back-button" onClick={onBackToHome}>Back To Home</Link>
       <h1 className="details-title">{article.title}</h1>
       <img 
         src={article.urlToImage || placeholderImage} 
