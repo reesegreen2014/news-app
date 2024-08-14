@@ -12,6 +12,6 @@ export const fetchArticles = () => {
     .then(data => data.articles)
     .catch(error => {
       console.error('Error fetching articles:', error);
-      return [];
+      throw new Error('Oops! The news elves are on vacation. Please try again later!');
     });
 };
